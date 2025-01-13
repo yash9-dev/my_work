@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ period.capitalize() }} Emission Summary</title>
+    <style>
+        .graph-container {
+            text-align: center;
+        }
+        .message {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    <link rel="icon" type="image/jpg" href="carbonctrl_logo.jpg">
+</head>
+<body>
+    <h1>{{ period.capitalize() }} Emission Summary</h1>
+
+    {% if graph %}
+        <div class="graph-container">
+            <img src="data:image/png;base64,{{ graph }}" alt="{{ period }} emission graph">
+        </div>
+    {% elif message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
